@@ -51,6 +51,7 @@ public class macro {
 	private int fat_slider_old = 20;
 
 	private boolean macro_integrity = true;
+	private JTextField textField;
 	/**
 	 * Launch the application.
 	 */
@@ -110,13 +111,23 @@ public class macro {
 		
 		boolean lose_weight = loseWeightbtn.isSelected();
 		
+		int deficit_surplus = 0;
+		
+		try
+		{
+			deficit_surplus = Integer.parseInt(textField.getText());
+		} catch (NumberFormatException e)
+		{
+			
+		}
+		
 		if (lose_weight)
 		{
-			target_cals = target_cals - 300;
+			target_cals = target_cals - deficit_surplus;
 		}
 		else
 		{
-			target_cals = target_cals + 300;
+			target_cals = target_cals + deficit_surplus;
 		}
 		
 		textField_2.setText(target_cals + " calories");
@@ -356,6 +367,14 @@ public class macro {
 		
 		JButton btnCalculate = new JButton("Calculate");
 		panel_2.add(btnCalculate);
+		
+		textField = new JTextField();
+		textField.setText("300");
+		frame.getContentPane().add(textField, "cell 0 5");
+		textField.setColumns(10);
+		
+		JLabel lblCals = new JLabel("cals deficit/surplus");
+		frame.getContentPane().add(lblCals, "cell 0 5");
 		btnCalculate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				calculate();
