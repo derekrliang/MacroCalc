@@ -192,7 +192,7 @@ public class macro {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new MigLayout("", "[grow]", "[][][][][][][grow][grow][][]"));
 		
-		JLabel lblNewLabel = new JLabel("Weight (g)");
+		JLabel lblNewLabel = new JLabel("Weight (lb)");
 		frame.getContentPane().add(lblNewLabel, "flowy,cell 0 1");
 		
 		txtG = new JTextField();
